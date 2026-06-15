@@ -1,4 +1,3 @@
-<!-- src/pages/About/About.vue -->
 <template>
   <div class="about-page">
 
@@ -29,7 +28,7 @@
           </p>
         </div>
         <div class="about-hero__image">
-          <img src="images/about.jpg" alt="Мастерская Nordic Furniture" class="about-hero__img">
+          <img src="/images/about.jpg" alt="Мастерская Nordic Furniture" class="about-hero__img">
         </div>
       </div>
     </section>
@@ -72,7 +71,7 @@
     <section class="about-workshop">
       <div class="about-workshop__container container">
         <div class="about-workshop__image">
-          <img src="images/Mastery.jpeg" alt="Мастерская" class="about-workshop__img">
+          <img src="/images/Mastery.jpeg" alt="Мастерская" class="about-workshop__img">
         </div>
         <div class="about-workshop__content">
           <h2 class="about-workshop__title">Мастерская, где рождается мебель</h2>
@@ -114,28 +113,27 @@
       </div>
     </section>
 
-    <!-- Materials -->
     <section class="about-materials">
       <div class="about-materials__container container">
         <h2 class="about-materials__title">Материалы, которым мы доверяем</h2>
         <div class="about-materials__grid">
           <div class="material-card">
-            <img src="images/dub.jpg" alt="Дуб" class="material-card__img">
+            <img src="/images/dub.jpg" alt="Дуб" class="material-card__img">
             <h3 class="material-card__title">Массив дуба</h3>
             <p class="material-card__desc">Каркасы и ножки. Дуб из Карелии, естественная сушка 2 года.</p>
           </div>
           <div class="material-card">
-            <img src="images/wool.png" alt="Шерсть" class="material-card__img">
+            <img src="/images/wool.png" alt="Шерсть" class="material-card__img">
             <h3 class="material-card__title">Натуральная шерсть</h3>
             <p class="material-card__desc">Обивка кресел и диванов. Новозеландская шерсть, плотность 400г/м².</p>
           </div>
           <div class="material-card">
-            <img src="images/flax.jpeg" alt="Лен" class="material-card__img">
+            <img src="/images/flax.jpeg" alt="Лен" class="material-card__img">
             <h3 class="material-card__title">Лен</h3>
             <p class="material-card__desc">Чехлы и подушки. Белорусский лен, выращенный без пестицидов.</p>
           </div>
           <div class="material-card">
-            <img src="images/brass.jpeg" alt="Латунь" class="material-card__img">
+            <img src="/images/brass.jpeg" alt="Латунь" class="material-card__img">
             <h3 class="material-card__title">Латунь</h3>
             <p class="material-card__desc">Фурнитура и освещение. Итальянская латунь, ручная полировка.</p>
           </div>
