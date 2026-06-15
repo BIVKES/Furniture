@@ -36,6 +36,8 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 24px;
+        max-width: 1200px;
+        margin: 0 auto;  
     }   
 
     &__btn {
@@ -203,7 +205,22 @@
     .bestsellers {
         &__grid {
             grid-template-columns: 1fr;
-            gap: 16px;
+            gap: 26px;
+        }
+
+        &__container {
+            margin: 0 auto;
+            padding: 0 35px;
+        }
+
+        &__title {
+            font-size: 23px;
+        }
+    }
+
+    .product {
+        &-image-wrap {
+            aspect-ratio: 5/4;
         }
     }
 }

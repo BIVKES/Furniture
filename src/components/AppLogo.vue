@@ -15,7 +15,7 @@
         font-size: 24px;
         font-weight: 600;
         letter-spacing: 0.05em;
-        color: var(--color-surface);
+        color: var(--color-text);
         transition: var(--transition);
     }    
 </style>

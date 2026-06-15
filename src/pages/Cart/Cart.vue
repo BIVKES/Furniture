@@ -115,7 +115,7 @@ const cartItems = ref([
     sku: 'NR-2024-001',
     price: 45000,
     qty: 1,
-    image: '/images/Lund.jpg'
+    image: 'images/Lund.jpg'
   },
   {
     id: 2,
@@ -124,7 +124,7 @@ const cartItems = ref([
     sku: 'NR-2024-015',
     price: 127000,
     qty: 1,
-    image: '/images/sofa.jpg'
+    image: 'images/sofa.jpg'
   },
   {
     id: 3,
@@ -133,7 +133,7 @@ const cartItems = ref([
     sku: 'NR-2024-042',
     price: 18500,
     qty: 2,
-    image: '/images/Helsinki.jpg'
+    image: 'images/Helsinki.jpg'
   }
 ])
 

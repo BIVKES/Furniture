@@ -1,7 +1,6 @@
-<!-- src/pages/Contacts/Contacts.vue -->
 <template>
   <div class="contacts-page">
-    <!-- Breadcrumbs -->
+
     <div class="contacts-page__breadcrumbs container">
       <RouterLink to="/" class="contacts-page__breadcrumbs-link">Главная</RouterLink>
       <span class="contacts-page__breadcrumbs-separator">/</span>
@@ -85,17 +84,6 @@
             </button>
           </form>
         </div>
-      </div>
-    </section>
-
-    <section class="contacts-map">
-      <div class="contacts-map__placeholder">
-        <svg class="icon contacts-map__icon" viewBox="0 0 24 24">
-          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-          <circle cx="12" cy="10" r="3"/>
-        </svg>
-        <p class="contacts-map__text">Карта с адресом шоурума</p>
-        <p class="contacts-map__address">Санкт-Петербург, ул. Мебельная, 12</p>
       </div>
     </section>
   </div>

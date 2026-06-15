@@ -1,5 +1,5 @@
 .about-page {
-  padding: 144px 15px 0;
+  padding: 144px 0 0;
 
   &__breadcrumbs {
     padding: 0 0 24px;
@@ -146,7 +146,6 @@
   }
 
   &__image {
-    direction: ltr;
     aspect-ratio: 4/5;
     overflow: hidden;
   }
@@ -270,8 +269,6 @@
     margin: 0 auto 40px;
   }
 }
-
-// ========== RESPONSIVE ==========
 
 @media (max-width: 1200px) {
   .about-hero,
@@ -445,7 +442,7 @@
   }
 
   .about-materials {
-    padding: 64px 0;
+    padding: 0 0;
 
     &__title {
       font-size: 28px;
@@ -484,6 +481,7 @@
 @media (max-width: 480px) {
   .about-page {
     padding: 80px 15px 0;
+    text-align: center;
 
     &__title {
       font-size: 28px;
@@ -493,6 +491,7 @@
   .about-hero,
   .about-workshop {
     &__title {
+      margin-top: 20px;
       font-size: 24px;
     }
   }

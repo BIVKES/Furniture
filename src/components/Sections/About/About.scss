@@ -81,3 +81,9 @@
         }
     }
 }
+
+@media (max-width: 480px) { 
+    .about__img {
+        max-width: 80%;
+    }
+}

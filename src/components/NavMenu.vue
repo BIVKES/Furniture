@@ -41,7 +41,7 @@ const items = [
     .nav-menu--vertical,
     .nav-menu--footer {
         flex-direction: column;
-        gap: 12px;
+        gap: 6px;
     }
 
     .nav-menu__link {
@@ -54,7 +54,7 @@ const items = [
     }
 
     .nav-menu--horizontal .nav-menu__link {
-        color: var(--color-surface);
+        color: var(--color-text);
         opacity: 0.8;
     }
 

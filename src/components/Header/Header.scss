@@ -1,54 +1,21 @@
 .header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1001;
     height: 72px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
     transition: all 0.2s ease;
+    background: var(--color-surface);
 
     &__inner {
         display: flex;
         align-items: center;
         justify-content: space-between;
         width: 100%;
-    }
-
-    &__nav {
-        gap: 32px;
-        display: flex;
-
-        &-link {
-            font-size: 16px;
-            font-weight: 500;
-            color: var(--color-surface);
-            opacity: 0.8;
-            transition: all 0.2s ease;
-            position: relative;
-            text-decoration: none;
-
-            &:hover {
-                opacity: 1;
-            }
-
-            &::after {
-                content: '';
-                position: absolute;
-                bottom: -4px;
-                left: 0;
-                width: 0;
-                height: 1px;
-                background: currentColor;
-                transition: all 0.2s ease;
-            }
-
-            &:hover::after {
-                width: 100%;
-            }
-        }
     }
 
     &__actions {
@@ -63,7 +30,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        color: var(--color-surface);
+        color: var(--color-text);
         transition: all 0.2s ease;
         position: relative;
         cursor: pointer;
@@ -92,7 +59,6 @@
         justify-content: center;
     }
 
-    // Mobile menu toggle
     &__menu-toggle {
         display: none;
         width: 40px;
@@ -158,7 +124,7 @@
 }
 
 .icon {
-    color: var(--color-surface);
+    color: var( --color-text);
     width: 24px;
     height: 24px;
     stroke: currentColor;

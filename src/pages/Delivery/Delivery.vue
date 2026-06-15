@@ -1,4 +1,3 @@
-<!-- src/pages/Delivery/Delivery.vue -->
 <template>
   <div class="delivery-page">
 

@@ -27,7 +27,6 @@
     color: var(--color-text);
   }
 
-  // Element: header
   &__header {
     padding: 0 0 48px;
   }
@@ -443,11 +442,16 @@ colors {
 
     &__products {
       grid-template-columns: 1fr;
+      padding: 0 30px;
     }
 
     &__top {
       flex-direction: column;
       align-items: flex-start;
     }
+  }
+
+  .product-card__image-wrap {
+    aspect-ratio: 5/4;
   }
 }

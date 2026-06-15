@@ -3,7 +3,7 @@
         <div class="footer__container container">
                 <div class="footer__grid">
                     <div class="footer__info">
-                        <AppLogo />
+                        <AppLogo class="footer__logo" />
                         <p class="footer__info-desc">Скандинавская мебель ручной работы из натуральных материалов. Создаем пространства для жизни с 2015 года.</p>
                     </div>
                     <div class="footer__menu">
