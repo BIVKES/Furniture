@@ -13,19 +13,9 @@ const routes = [
     component: () => import('@/pages/Catalog/Catalog.vue')
   },
   {
-    path: '/product/:id',
-    name: 'product',
-    component: () => import('@/pages/Product/Product.vue')
-  },
-  {
     path: '/cart',
     name: 'cart',
     component: () => import('@/pages/Cart/Cart.vue')
-  },
-  {
-    path: '/checkout',
-    name: 'checkout',
-    component: () => import('@/pages/Checkout/Checkout.vue')
   },
   {
     path: '/about',
