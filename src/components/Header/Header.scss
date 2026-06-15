@@ -1,0 +1,217 @@
+.header {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: all 0.2s ease;
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    &__nav {
+        gap: 32px;
+        display: flex;
+
+        &-link {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--color-surface);
+            opacity: 0.8;
+            transition: all 0.2s ease;
+            position: relative;
+            text-decoration: none;
+
+            &:hover {
+                opacity: 1;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 0;
+                height: 1px;
+                background: currentColor;
+                transition: all 0.2s ease;
+            }
+
+            &:hover::after {
+                width: 100%;
+            }
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+    }
+
+    &__icon {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-surface);
+        transition: all 0.2s ease;
+        position: relative;
+        cursor: pointer;
+        background: none;
+        border: none;
+        text-decoration: none;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    &__cart-badge {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        width: 16px;
+        height: 16px;
+        background: var(--color-accent);
+        color: var(--color-surface);
+        font-size: 10px;
+        font-weight: 600;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    // Mobile menu toggle
+    &__menu-toggle {
+        display: none;
+        width: 40px;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-surface);
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+        padding: 0;
+
+        .icon {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    &__mobile-nav {
+        
+        display: none;
+        position: fixed;
+        top: -15px;
+        left: 0;
+        right: 0;
+        background: var(--color-text);
+        padding: 24px;
+        margin: 15px;
+        flex-direction: column;
+        gap: 0;
+        z-index: 999;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+        opacity: 0;
+        visibility: hidden;
+
+        &.is-open {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &__mobile-link {
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--color-surface);
+        text-decoration: none;
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        display: block;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}
+
+.icon {
+    color: var(--color-surface);
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: all 0.2s ease;
+
+    &:hover {
+        color: var(--color-accent-hover);
+    }
+}
+
+@media (max-width: 1300px) {
+    .header {
+        padding: 0 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        height: 60px;
+
+        .header__nav {
+            display: none !important;
+        }
+
+        &__menu-toggle {
+            display: flex;
+        }
+
+        &__mobile-nav {
+            display: flex;
+        }
+
+        &__actions {
+            gap: 16px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        &__icon {
+            width: 36px;
+            height: 36px;
+        }
+
+        &__cart-badge {
+            width: 14px;
+            height: 14px;
+            font-size: 9px;
+        }
+    }
+}

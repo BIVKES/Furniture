@@ -1,0 +1,493 @@
+.delivery-page {
+  padding: 144px 0 0;
+
+  &__breadcrumbs {
+    padding: 0 0 24px;
+    display: flex;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--color-muted);
+    flex-wrap: wrap;
+  }
+
+  &__breadcrumbs-link {
+    color: var(--color-muted);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--color-text);
+    }
+  }
+
+  &__breadcrumbs-separator {
+    color: var(--color-muted);
+  }
+
+  &__breadcrumbs-current {
+    color: var(--color-text);
+  }
+
+  &__header {
+    padding: 0 0 48px;
+  }
+
+  &__title {
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+}
+
+.delivery-methods {
+  padding: 0 0 64px;
+
+  &__title {
+    font-size: 48px;
+    font-weight: 500;
+    margin-bottom: 48px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+.delivery-card {
+  border: 1px solid var(--color-border);
+  padding: 32px;
+
+  &__icon {
+    width: 48px;
+    height: 48px;
+    background: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      stroke: var(--color-text);
+      stroke-width: 1.5;
+      fill: none;
+    }
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  &__desc {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin-bottom: 16px;
+  }
+
+  &__price {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--color-accent);
+    margin-bottom: 8px;
+  }
+
+  &__time {
+    font-size: 14px;
+    color: var(--color-muted);
+  }
+}
+
+.payment-methods {
+  padding: 64px 0;
+  background: var(--color-surface);
+
+  &__title {
+    font-size: 48px;
+    font-weight: 500;
+    margin-bottom: 48px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+.payment-card {
+  display: flex;
+  gap: 24px;
+  padding: 32px;
+  border: 1px solid var(--color-border);
+
+  &__icon {
+    width: 64px;
+    height: 64px;
+    background: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    .icon {
+      width: 32px;
+      height: 32px;
+      stroke: var(--color-text);
+      stroke-width: 1.5;
+      fill: none;
+    }
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  &__desc {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+}
+
+.delivery-process {
+  padding: 64px 0;
+
+  &__title {
+    font-size: 48px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    position: relative;
+  }
+}
+
+.process-step {
+  text-align: center;
+  position: relative;
+
+  &__number {
+    width: 48px;
+    height: 48px;
+    background: var(--color-text);
+    color: var(--color-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 auto 24px;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  &__desc {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+  }
+}
+
+.delivery-faq {
+  padding: 64px 0 128px;
+  background: var(--color-surface);
+
+  &__title {
+    font-size: 48px;
+    font-weight: 500;
+    margin-bottom: 48px;
+  }
+
+  &__list {
+    max-width: 800px;
+  }
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--color-border);
+  padding: 24px 0;
+
+  &__question {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  &__answer {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+}
+
+// ========== RESPONSIVE ==========
+
+@media (max-width: 1200px) {
+  .delivery-process {
+    &__grid {
+      gap: 24px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .delivery-page {
+    padding: 120px 0 0;
+
+    &__title {
+      font-size: 48px;
+    }
+  }
+
+  .delivery-methods {
+    padding: 0 0 48px;
+
+    &__title {
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .payment-methods {
+    padding: 48px 0;
+
+    &__title {
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+  }
+
+  .delivery-process {
+    padding: 48px 0;
+
+    &__title {
+      font-size: 36px;
+      margin-bottom: 48px;
+    }
+
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .delivery-faq {
+    padding: 48px 0 80px;
+
+    &__title {
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+  }
+
+  .faq-item {
+    &__question {
+      font-size: 20px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .delivery-page {
+    padding: 100px 0 0;
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__header {
+      padding: 0 0 32px;
+    }
+  }
+
+  .delivery-methods {
+    padding: 0 0 32px;
+
+    &__title {
+      font-size: 28px;
+      margin-bottom: 32px;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  .delivery-card {
+    padding: 24px;
+
+    &__icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 16px;
+
+      .icon {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &__title {
+      font-size: 20px;
+    }
+
+    &__desc {
+      font-size: 14px;
+    }
+
+    &__price {
+      font-size: 20px;
+    }
+  }
+
+  .payment-methods {
+    padding: 32px 0;
+
+    &__title {
+      font-size: 28px;
+      margin-bottom: 32px;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  .payment-card {
+    padding: 24px;
+    gap: 16px;
+
+    &__icon {
+      width: 48px;
+      height: 48px;
+
+      .icon {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    &__title {
+      font-size: 20px;
+    }
+
+    &__desc {
+      font-size: 14px;
+    }
+  }
+
+  .delivery-process {
+    padding: 32px 0;
+
+    &__title {
+      font-size: 28px;
+      margin-bottom: 32px;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  .process-step {
+    text-align: left;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+
+    &__number {
+      margin: 0;
+      flex-shrink: 0;
+    }
+
+    &__title {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    &__desc {
+      font-size: 13px;
+    }
+  }
+
+  .delivery-faq {
+    padding: 32px 0 64px;
+
+    &__title {
+      font-size: 28px;
+      margin-bottom: 32px;
+    }
+  }
+
+  .faq-item {
+    padding: 20px 0;
+
+    &__question {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    &__answer {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .delivery-page {
+    padding: 80px 0 0;
+
+    &__title {
+      font-size: 28px;
+    }
+  }
+
+  .delivery-card {
+    padding: 20px;
+  }
+
+  .payment-card {
+    flex-direction: column;
+    padding: 20px;
+
+    &__icon {
+      margin-bottom: 8px;
+    }
+  }
+
+  .process-step {
+    flex-direction: column;
+    text-align: center;
+
+    &__number {
+      margin: 0 auto 16px;
+    }
+  }
+}
