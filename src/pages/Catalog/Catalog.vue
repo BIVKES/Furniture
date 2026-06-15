@@ -213,61 +213,61 @@ const products = [
     id: 1,
     name: 'Кресло Bergen',
     price: 45000,
-    image: '/images/armchair.jpg',
+    image: 'images/armchair.jpg',
     badge: 'Новинка'
   },
   {
     id: 2,
     name: 'Диван Oslo',
     price: 127000,
-    image: '/images/sofa.jpg'
+    image: 'images/sofa.jpg'
   },
   {
     id: 3,
     name: 'Стол Stockholm',
     price: 38000,
     oldPrice: 52000,
-    image: '/images/table.jpg',
+    image: 'images/table.jpg',
     badge: 'Скидка'
   },
   {
     id: 4,
     name: 'Светильник Nordic',
     price: 18500,
-    image: '/images/chandelier.jpg'
+    image: 'images/chandelier.jpg'
   },
   {
     id: 5,
     name: 'Кресло Aarhus',
     price: 52000,
-    image: '/images/Aarhus.jpg'
+    image: 'images/Aarhus.jpg'
   },
   {
     id: 6,
     name: 'Стол Copenhagen',
     price: 67000,
-    image: '/images/Copenhagen.jpg',
+    image: 'images/Copenhagen.jpg',
     badge: 'Новинка'
   },
   {
     id: 7,
     name: 'Диван Malmö',
     price: 145000,
-    image: '/images/Malmo.jpeg'
+    image: 'images/Malmo.jpeg'
   },
   {
     id: 8,
     name: 'Торшер Helsinki',
     price: 24000,
     oldPrice: 32000,
-    image: '/images/Helsinki.jpg',
+    image: 'images/Helsinki.jpg',
     badge: 'Скидка'
   },
   {
     id: 9,
     name: 'Кресло Lund',
     price: 41000,
-    image: '/images/Lund.jpg'
+    image: 'images/Lund.jpg'
   }
 ]
 
