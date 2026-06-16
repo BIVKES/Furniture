@@ -11,8 +11,6 @@
                     v-for="product in products" 
                     :key="product.id"
                     class="product-card"
-                    @click="goToCatalog"
-                    @click.stop
                 >
                     <div class="product-image-wrap">
                         <img :src="product.image" :alt="product.name">
@@ -22,7 +20,7 @@
                         </span>
                         
                         <div class="product-actions">
-                            <BaseButton variant="primary" size="mini" to="/catalog">
+                            <BaseButton variant="primary" size="mini" @click="addToCart(product)">
                                 В корзину
                             </BaseButton>
                         </div>
@@ -49,8 +47,10 @@
 
 <script setup>
     import { useRouter } from 'vue-router'
+    import { useCartStore } from '@/stores/cart.js'
 
     const router = useRouter()
+    const cartStore = useCartStore()
 
     const products = [
         {
@@ -87,7 +87,7 @@
         return price.toLocaleString('ru-RU')
     }
 
-    const goToCatalog = () => {
-        router.push('/catalog')
+    const addToCart = (product) => {
+        cartStore.addItem(product)
     }
 </script>

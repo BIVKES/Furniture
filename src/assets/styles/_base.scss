@@ -44,7 +44,8 @@ ul {
 
 button {
   border: none;
-  background: none;
+  background: transparent;
+  color: inherit;
   cursor: pointer;
   font-family: inherit;
 }

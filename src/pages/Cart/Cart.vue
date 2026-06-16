@@ -2,13 +2,17 @@
   <div class="cart-page">
     <div class="cart-page__header container">
       <h1 class="cart-page__title">Корзина</h1>
-      <span class="cart-page__count">3 товара</span>
+      <span class="cart-page__count">{{ totalItems }} товара</span>
     </div>
 
     <div class="cart-page__layout container">
       <div class="cart-items">
+        <div v-if="items.length === 0" class="cart-items__empty">
+          Корзина пуста
+        </div>
+        
         <div 
-          v-for="item in cartItems" 
+          v-for="item in items" 
           :key="item.id"
           class="cart-item"
         >
@@ -25,12 +29,12 @@
           <div class="cart-item__quantity quantity">
             <button 
               class="quantity__btn" 
-              @click="decreaseQty(item)"
+              @click="decreaseQty(item.id)"
             >−</button>
             <div class="quantity__value">{{ item.qty }}</div>
             <button 
               class="quantity__btn" 
-              @click="increaseQty(item)"
+              @click="increaseQty(item.id)"
             >+</button>
           </div>
           
@@ -38,7 +42,7 @@
           
           <button 
             class="cart-item__remove" 
-            @click="removeItem(item)"
+            @click="removeItem(item.id)"
             aria-label="Удалить"
           >
             <svg class="icon" viewBox="0 0 24 24">
@@ -70,7 +74,7 @@
         
         <div class="cart-summary__row">
           <span>Подытог</span>
-          <span>{{ formatPrice(subtotal) }} ₽</span>
+          <span>{{ formatPrice(totalPrice) }} ₽</span>
         </div>
         <div class="cart-summary__row">
           <span>Доставка</span>
@@ -85,14 +89,14 @@
         
         <div class="cart-summary__total">
           <span>Итого</span>
-          <span class="cart-summary__total-value">{{ formatPrice(total) }} ₽</span>
+          <span class="cart-summary__total-value">{{ formatPrice(totalPrice - discount) }} ₽</span>
         </div>
         
         <BaseButton 
           variant="primary" 
           size="large" 
           full 
-          @click="goToCheckout"
+          @click="alert('В разработке')"
         >
           Оформить заказ
         </BaseButton>
@@ -104,66 +108,23 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { useCartStore } from '@/stores/cart.js'
+import { storeToRefs } from 'pinia'
 
 const router = useRouter()
-
-const cartItems = ref([
-  {
-    id: 1,
-    name: 'Кресло Bergen',
-    variant: 'Коричневый, Дуб',
-    sku: 'NR-2024-001',
-    price: 45000,
-    qty: 1,
-    image: 'images/Lund.jpg'
-  },
-  {
-    id: 2,
-    name: 'Диван Oslo',
-    variant: 'Серый, Текстиль',
-    sku: 'NR-2024-015',
-    price: 127000,
-    qty: 1,
-    image: 'images/sofa.jpg'
-  },
-  {
-    id: 3,
-    name: 'Светильник Nordic',
-    variant: 'Латунь',
-    sku: 'NR-2024-042',
-    price: 18500,
-    qty: 2,
-    image: 'images/Helsinki.jpg'
-  }
-])
+const cartStore = useCartStore()
+const { items, totalItems, totalPrice } = storeToRefs(cartStore)
 
 const promoCode = ref('')
-
-const subtotal = computed(() => {
-  return cartItems.value.reduce((sum, item) => sum + item.price * item.qty, 0)
-})
-
 const discount = ref(15000)
-
-const total = computed(() => {
-  return subtotal.value - discount.value
-})
 
 const formatPrice = (price) => {
   return price.toLocaleString('ru-RU')
 }
 
-const increaseQty = (item) => {
-  item.qty++
-}
-
-const decreaseQty = (item) => {
-  if (item.qty > 1) item.qty--
-}
-
-const removeItem = (item) => {
-  cartItems.value = cartItems.value.filter(i => i.id !== item.id)
-}
+const removeItem = (id) => cartStore.removeItem(id)
+const increaseQty = (id) => cartStore.increaseQty(id)
+const decreaseQty = (id) => cartStore.decreaseQty(id)
 
 const applyPromo = () => {
   alert(`Промокод ${promoCode.value} применен!`)
@@ -172,13 +133,8 @@ const applyPromo = () => {
 const goToCatalog = () => {
   router.push('/catalog')
 }
-
-const goToCheckout = () => {
-  router.push('/checkout')
-}
 </script>
 
 <style scoped lang="scss">
   @use './Cart.scss' as * 
-
 </style>

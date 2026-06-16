@@ -9,30 +9,34 @@
       `btn--${size}`,
       { 'btn--full': full }
     ]"
-    @click="$emit('click')"
+    @click="handleClick"
   >
     <slot />
   </component>
 </template>
 
 <script setup>
-    import { computed } from 'vue'
+import { computed } from 'vue'
 
-    const props = defineProps({
-    variant: { type: String, default: 'primary' },
-    size: { type: String, default: 'medium' },
-    full: Boolean,
-    to: String,
-    href: String
-    })
+const props = defineProps({
+  variant: { type: String, default: 'primary' },
+  size: { type: String, default: 'medium' },
+  full: Boolean,
+  to: String,
+  href: String
+})
 
-    const tag = computed(() => {
-    if (props.to) return 'RouterLink'
-    if (props.href) return 'a'
-    return 'button'
-    })
+const emit = defineEmits(['click'])
 
-    defineEmits(['click'])
+const tag = computed(() => {
+  if (props.to) return 'RouterLink'
+  if (props.href) return 'a'
+  return 'button'
+})
+
+const handleClick = (event) => {
+  emit('click', event)
+}
 </script>
 
 <style scoped>
@@ -84,5 +88,4 @@
       padding: 12px;
       font-size: 13px;
     }
-
 </style>

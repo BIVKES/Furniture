@@ -1,20 +1,18 @@
-<!-- src/pages/Catalog/Catalog.vue -->
 <template>
   <div class="catalog">
-    <!-- Breadcrumbs -->
+
     <div class="catalog__breadcrumbs container">
       <RouterLink to="/" class="catalog__breadcrumbs-link">Главная</RouterLink>
       <span class="catalog__breadcrumbs-separator">/</span>
       <span class="catalog__breadcrumbs-current">Каталог</span>
     </div>
 
-    <!-- Header -->
     <div class="catalog__header container">
       <h1 class="catalog__title">Каталог</h1>
     </div>
 
     <div class="catalog__layout container">
-      <!-- Mobile Sidebar Toggle -->
+
       <button 
         class="catalog__sidebar-toggle" 
         @click="toggleSidebar"
@@ -25,7 +23,7 @@
         </svg>
         {{ sidebarOpen ? 'Скрыть фильтры' : 'Фильтры' }}
       </button>
-      <!-- Sidebar -->
+      
       <aside class="catalog__sidebar sidebar" :class="{ 'is-open': sidebarOpen }">
         <div class="sidebar__group">
           <div class="sidebar__group-title">Категории</div>
@@ -102,7 +100,6 @@
         </div>
       </aside>
 
-      <!-- Content -->
       <div class="catalog__content">
         <div class="catalog__top">
           <div class="catalog__results">Показано 9 из 73 товаров</div>
@@ -119,7 +116,6 @@
             v-for="product in products" 
             :key="product.id"
             class="products__item product-card"
-            @click="goToProduct(product.id)"
           >
             <div class="product-card__image-wrap">
               <img 
@@ -137,7 +133,7 @@
                 <BaseButton 
                   variant="primary" 
                   full 
-                  @click.stop="addToCart(product)"
+                  @click="addToCart(product)"
                   class="product-card__btn"
                 >
                   В корзину
@@ -175,15 +171,16 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { useCartStore } from '@/stores/cart.js'
 
+const router = useRouter()
+const cartStore = useCartStore()
 const sidebarOpen = ref(false)
 
 const toggleSidebar = () => {
   sidebarOpen.value = !sidebarOpen.value
 }
-import { useRouter } from 'vue-router'
-
-const router = useRouter()
 
 const categories = [
   { id: 1, name: 'Диваны', count: 12, checked: true },
@@ -280,7 +277,7 @@ const goToProduct = (id) => {
 }
 
 const addToCart = (product) => {
-  console.log('В корзину:', product.name)
+  cartStore.addItem(product)
 }
 </script>
 
