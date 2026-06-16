@@ -1,5 +1,5 @@
 <template>
-    <header class="header" :class="{ 'header--scrolled': scrolled }">
+    <header class="header">
         <div class="container header__inner">
             <AppLogo />
 
@@ -56,10 +56,6 @@
 
     const cartStore = useCartStore()
     const { totalItems } = storeToRefs(cartStore)
-    const scrolled = ref(false)
-    const onScroll = () => {
-        scrolled.value = window.scrollY > 50
-    }
     onMounted(() => window.addEventListener('scroll', onScroll))
     onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
