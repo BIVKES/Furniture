@@ -311,17 +311,6 @@
       width: auto;
       padding: 0 16px;
     }
-
-    &:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
-
-      &:hover {
-        background: var(--color-surface);
-        color: var(--color-text);
-        border-color: var(--color-border);
-      }
-    }
   }
 }
 
