@@ -83,7 +83,13 @@
 }
 
 @media (max-width: 480px) { 
-    .about__img {
-        max-width: 80%;
+    .about {
+        &__img {
+            max-width: 80%;
+        }
+
+        &__info {
+            padding: 15px;
+        }
     }
 }
