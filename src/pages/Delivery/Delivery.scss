@@ -257,7 +257,6 @@
   &__title {
     font-size: 48px;
     font-weight: 500;
-    margin-bottom: 48px;
   }
 
   &__list {
@@ -283,16 +282,23 @@
 }
 
 @media (max-width: 1200px) {
+  .delivery-page {
+    padding: 144px 15px 0;
+  }
   .delivery-process {
     &__grid {
       gap: 24px;
     }
   }
+
+  .payment-methods {
+    padding: 64px 15px;
+  }
 }
 
 @media (max-width: 1024px) {
   .delivery-page {
-    padding: 120px 0 0;
+    padding: 120px 15px 0;
 
     &__title {
       font-size: 48px;
@@ -313,7 +319,7 @@
   }
 
   .payment-methods {
-    padding: 48px 0;
+    padding: 64px 15px;
 
     &__title {
       font-size: 36px;
@@ -339,7 +345,6 @@
 
     &__title {
       font-size: 36px;
-      margin-bottom: 40px;
     }
   }
 
@@ -352,7 +357,7 @@
 
 @media (max-width: 768px) {
   .delivery-page {
-    padding: 100px 0 0;
+    padding: 100px 15px 0;
 
     &__title {
       font-size: 32px;
@@ -394,7 +399,7 @@
   }
 
   .payment-methods {
-    padding: 32px 0;
+    padding: 32px 15px;
 
     &__title {
       font-size: 28px;
@@ -456,11 +461,10 @@
   }
 
   .delivery-faq {
-    padding: 32px 0 64px;
+    padding: 22px 15px 64px;
 
     &__title {
       font-size: 28px;
-      margin-bottom: 32px;
     }
   }
 
@@ -480,7 +484,7 @@
 
 @media (max-width: 480px) {
   .delivery-page {
-    padding: 80px 0 0;
+    padding: 80px 15px 0;
 
     &__title {
       font-size: 28px;
@@ -499,6 +503,7 @@
   .process-step {
     flex-direction: column;
     text-align: center;
+    align-items: center;
 
     &__number {
       margin: 0 auto 16px;
