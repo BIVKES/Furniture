@@ -40,6 +40,7 @@
             <RouterLink to="/" class="header__mobile-link" @click="closeMenu">Главная</RouterLink>
             <RouterLink to="/catalog" class="header__mobile-link" @click="closeMenu">Каталог</RouterLink>
             <RouterLink to="/about" class="header__mobile-link" @click="closeMenu">О нас</RouterLink>
+            <RouterLink to="/delivery" class="header__mobile-link" @click="closeMenu">Доставка</RouterLink>
             <RouterLink to="/contacts" class="header__mobile-link" @click="closeMenu">Контакты</RouterLink>
         </div>
     </header>

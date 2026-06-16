@@ -60,21 +60,50 @@
   padding: 32px;
 
   &__icon {
-    width: 48px;
-    height: 48px;
-    background: var(--color-bg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
-
-    .icon {
-      width: 24px;
-      height: 24px;
-      stroke: var(--color-text);
-      stroke-width: 1.5;
-      fill: none;
+    &-delivery {
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 26px;
+        height:26px;
+        -webkit-mask: url('icon/delivery.svg') center no-repeat;
+        mask: url('icon/delivery.svg') center no-repeat;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        background-color: currentColor;
+        opacity: 0.8;
+      }
     }
+    &-map {
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 26px;
+        height:26px;
+        -webkit-mask: url('icon/map.svg') center no-repeat;
+        mask: url('icon/map.svg') center no-repeat;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        background-color: currentColor;
+        opacity: 0.8;
+      }
+    }
+
+    &-mail {
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 26px;
+        height:26px;
+        -webkit-mask: url('icon/mail.svg') center no-repeat;
+        mask: url('icon/mail.svg') center no-repeat;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        background-color: currentColor;
+        opacity: 0.8;
+      }
+    }
+
   }
 
   &__title {
@@ -122,25 +151,37 @@
 
 .payment-card {
   display: flex;
-  gap: 24px;
+  flex-direction: column;
   padding: 32px;
   border: 1px solid var(--color-border);
 
   &__icon {
-    width: 64px;
-    height: 64px;
-    background: var(--color-bg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+    &-credit-card {
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 32px;
+        height:32px;
+        -webkit-mask: url('icon/credit-card.svg') center no-repeat;
+        mask: url('icon/credit-card.svg') center no-repeat;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        background-color: currentColor;
+      }
+    }
 
-    .icon {
-      width: 32px;
-      height: 32px;
-      stroke: var(--color-text);
-      stroke-width: 1.5;
-      fill: none;
+    &-dollar {
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 32px;
+        height:32px;
+        -webkit-mask: url('icon/dollar.svg') center no-repeat;
+        mask: url('icon/dollar.svg') center no-repeat;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        background-color: currentColor;
+      }
     }
   }
 
@@ -339,17 +380,6 @@
   .delivery-card {
     padding: 24px;
 
-    &__icon {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 16px;
-
-      .icon {
-        width: 20px;
-        height: 20px;
-      }
-    }
-
     &__title {
       font-size: 20px;
     }
@@ -380,16 +410,6 @@
   .payment-card {
     padding: 24px;
     gap: 16px;
-
-    &__icon {
-      width: 48px;
-      height: 48px;
-
-      .icon {
-        width: 24px;
-        height: 24px;
-      }
-    }
 
     &__title {
       font-size: 20px;
@@ -474,10 +494,6 @@
   .payment-card {
     flex-direction: column;
     padding: 20px;
-
-    &__icon {
-      margin-bottom: 8px;
-    }
   }
 
   .process-step {

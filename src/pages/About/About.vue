@@ -38,27 +38,21 @@
         <h2 class="about-values__title">Наши принципы</h2>
         <div class="about-values__grid">
           <div class="value-card">
-            <div class="value-card__icon">
-              <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
+            <div class="value-card__icon-shield"></div>
             <h3 class="value-card__title">Качество</h3>
             <p class="value-card__desc">
               Только натуральные материалы. Каждое изделие проходит 7 этапов контроля качества перед отправкой клиенту.
             </p>
           </div>
           <div class="value-card">
-            <div class="value-card__icon">
-              <svg class="icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
+            <div class="value-card__icon-map"></div>
             <h3 class="value-card__title">Локальность</h3>
             <p class="value-card__desc">
               Вся мебель производится в Санкт-Петербурге. Мы работаем с поставщиками из Карелии и Ленинградской области.
             </p>
           </div>
           <div class="value-card">
-            <div class="value-card__icon">
-              <svg class="icon" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
-            </div>
+            <div class="value-card__icon-drop"></div>
             <h3 class="value-card__title">Экология</h3>
             <p class="value-card__desc">
               Мы используем только экологичные материалы и покрытия. Наше производство — zero waste, отходы идут на отопление мастерской.

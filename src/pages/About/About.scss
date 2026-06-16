@@ -107,20 +107,47 @@
   text-align: center;
 
   &__icon {
-    width: 64px;
-    height: 64px;
-    background: var(--color-bg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 24px;
-
-    .icon {
-      width: 32px;
-      height: 32px;
-      stroke: var(--color-text);
-      stroke-width: 1.5;
-      fill: none;
+    &-shield {
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        -webkit-mask: url('icon/shield.svg') center no-repeat;
+        mask: url('icon/shield.svg') center no-repeat;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        background-color: currentColor;
+        opacity: 0.8;
+      }
+    }
+    &-map {
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        -webkit-mask: url('icon/map.svg') center no-repeat;
+        mask: url('icon/map.svg') center no-repeat;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        background-color: currentColor;
+        opacity: 0.8;
+      }
+    }
+    &-drop {
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        -webkit-mask: url('icon/drop.svg') center no-repeat;
+        mask: url('icon/drop.svg') center no-repeat;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        background-color: currentColor;
+        opacity: 0.8;
+      }
     }
   }
 
