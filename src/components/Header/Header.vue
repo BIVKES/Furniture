@@ -56,8 +56,6 @@
 
     const cartStore = useCartStore()
     const { totalItems } = storeToRefs(cartStore)
-
-     Scroll
     const scrolled = ref(false)
     const onScroll = () => {
         scrolled.value = window.scrollY > 50
