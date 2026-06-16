@@ -31,8 +31,8 @@
             display: inline-block;
             width: 18px;
             height: 18px;
-            -webkit-mask: url('icon/arrow-right.svg') center no-repeat;
-            mask: url('icon/arrow-right.svg') center no-repeat;
+            -webkit-mask: url('/icon/arrow-right.svg') center no-repeat;
+            mask: url('/icon/arrow-right.svg') center no-repeat;
             -webkit-mask-size: contain;
             mask-size: contain;
             background-color: currentColor;
