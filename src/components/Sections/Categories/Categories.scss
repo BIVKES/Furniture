@@ -25,6 +25,19 @@
         &:hover {
             color: var(--color-accent-hover);
         }
+
+        &::after {
+            content: '';
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            -webkit-mask: url('icon/arrow-right.svg') center no-repeat;
+            mask: url('icon/arrow-right.svg') center no-repeat;
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            background-color: currentColor;
+            opacity: 0.8;
+        }
     }
 
     &__grid {
@@ -55,6 +68,8 @@
         height: 100%;
         object-fit: cover;
         transition: transform 0.6s ease;
+        pointer-events: none;
+        user-select: none;  
     }
 
     &__overlay {

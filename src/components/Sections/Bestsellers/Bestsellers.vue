@@ -3,7 +3,7 @@
         <div class="bestsellers__container container">
             <div class="bestsellers__header">
                 <h2 class="bestsellers__title">Бестселлеры</h2>
-                <button @click="goToCatalog" class="bestsellers__btn">Все товары →</button>
+                <button @click="goToCatalog" class="bestsellers__btn">Все товары</button>
             </div>
 
             <div class="bestsellers__grid">

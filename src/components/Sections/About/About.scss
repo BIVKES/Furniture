@@ -27,6 +27,8 @@
     }
 
     &__img {
+        pointer-events: none;
+        user-select: none;  
         max-width: 544px;
         width: 100%;
         height: auto;

@@ -2,7 +2,7 @@
     <section class="categories container">
         <div class="categories__header">
             <h2 class="categories__title">Категории</h2>
-            <button @click="goToCatalog" class="categories__btn">Все категории →</button>
+            <button @click="goToCatalog" class="categories__btn">Все категории</button>
         </div>
         <div class="categories__grid">
             <div 
