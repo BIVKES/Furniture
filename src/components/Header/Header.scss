@@ -24,6 +24,21 @@
         gap: 24px;
     }
 
+    &__icon {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-text);
+        transition: all 0.2s ease;
+        position: relative;
+        cursor: pointer;
+        background: none;
+        border: none;
+        text-decoration: none;
+    }
+
     &__cart-badge {
         position: absolute;
         top: 2px;
