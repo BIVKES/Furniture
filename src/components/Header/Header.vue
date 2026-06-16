@@ -57,8 +57,6 @@
 
     const cartStore = useCartStore()
     const { totalItems } = storeToRefs(cartStore)
-    onMounted(() => window.addEventListener('scroll', onScroll))
-    onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
     const menuOpen = ref(false)
     const toggleMenu = () => {

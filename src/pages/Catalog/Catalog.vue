@@ -1,4 +1,4 @@
-<template>
+<<template>
   <div class="catalog">
 
     <div class="catalog__breadcrumbs container">
@@ -102,7 +102,9 @@
 
       <div class="catalog__content">
         <div class="catalog__top">
-          <div class="catalog__results">Показано 9 из 73 товаров</div>
+          <div class="catalog__results">
+            Показано {{ paginatedProducts.length }} из {{ products.length }} товаров
+          </div>
           <select class="catalog__sort sort">
             <option class="sort__option">По популярности</option>
             <option class="sort__option">Сначала дешевле</option>
@@ -113,7 +115,7 @@
 
         <div class="catalog__products products">
           <div 
-            v-for="product in products" 
+            v-for="product in paginatedProducts" 
             :key="product.id"
             class="products__item product-card"
           >
@@ -156,13 +158,31 @@
         </div>
 
         <div class="catalog__pagination pagination">
-          <button class="pagination__btn pagination__btn--arrow">← Назад</button>
-          <button class="pagination__btn pagination__btn--active">1</button>
-          <button class="pagination__btn">2</button>
-          <button class="pagination__btn">3</button>
-          <button class="pagination__btn">4</button>
-          <button class="pagination__btn">5</button>
-          <button class="pagination__btn pagination__btn--arrow">Вперед →</button>
+          <button 
+            class="pagination__btn pagination__btn--arrow"
+            :disabled="currentPage === 1"
+            @click="currentPage--"
+          >
+            ← Назад
+          </button>
+          
+          <button 
+            v-for="page in totalPages" 
+            :key="page"
+            class="pagination__btn"
+            :class="{ 'pagination__btn--active': page === currentPage }"
+            @click="currentPage = page"
+          >
+            {{ page }}
+          </button>
+          
+          <button 
+            class="pagination__btn pagination__btn--arrow"
+            :disabled="currentPage === totalPages"
+            @click="currentPage++"
+          >
+            Вперед →
+          </button>
         </div>
       </div>
     </div>
@@ -170,13 +190,15 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useCartStore } from '@/stores/cart.js'
 
 const router = useRouter()
 const cartStore = useCartStore()
 const sidebarOpen = ref(false)
+const currentPage = ref(1)
+const itemsPerPage = 9
 
 const toggleSidebar = () => {
   sidebarOpen.value = !sidebarOpen.value
@@ -262,11 +284,138 @@ const products = [
   },
   {
     id: 9,
-    name: 'Кресло Lund',
+    name: 'Стул Lund',
     price: 41000,
     image: 'images/card/Lund.jpg'
-  }
+  },
+  {
+    id: 10,
+    name: 'Кресло Arden',
+    price: 35000,
+    image: 'images/card/Arden.jpg'
+  },
+  {
+    id: 11,
+    name: 'Стул Arden Armchair',
+    price: 31000,
+    oldPrice: 35000,
+    image: 'images/card/ArdenArmchair.jpg',
+    badge: 'Скидка'
+  },
+  {
+    id: 12,
+    name: 'Кресло Atelier Chair',
+    price: 27000,
+    image: 'images/card/AtelierUpholsteredChair.jpg'
+  },
+  {
+    id: 13,
+    name: 'Светильник Aurora Light',
+    price: 25000,
+    image: 'images/card/AuroraPendantLight.jpg'
+  },
+  {
+    id: 14,
+    name: 'Диван Coastal',
+    price: 45000,
+    image: 'images/card/CoastalBreezeSofa.jpg',
+    badge: 'Новинка'
+  },
+  {
+    id: 15,
+    name: 'Кресло Beckett',
+    price: 36000,
+    image: 'images/card/BeckettDiningChair.jpg'
+  },
+  {
+    id: 16,
+    name: 'Светильник Ember',
+    price: 26000,
+    image: 'images/card/EmberWallSconce.jpg'
+  },
+  {
+    id: 17,
+    name: 'Светильник Halo',
+    price: 19000,
+    oldPrice: 23000,
+    image: 'images/card/HaloTableLamp.jpg',
+    badge: 'Скидка'
+  },
+  {
+    id: 18,
+    name: 'Кресло Hudson',
+    price: 34000,
+    image: 'images/card/HudsonRecliner.jpg',
+    badge: 'Новинка'
+  },
+  {
+    id: 19,
+    name: 'Кресло Rowan',
+    price: 41000,
+    image: 'images/card/RowanSideChair.jpg'
+  },
+  {
+    id: 20,
+    name: 'Светильник LumenArc',
+    price: 23000,
+    image: 'images/card/LumenArcFloorLamp.jpg',
+    badge: 'Новинка'
+  },
+  {
+    id: 21,
+    name: 'Кресло Scout',
+    price: 25000,
+    image: 'images/card/ScoutClubChair.jpg'
+  },
+  {
+    id: 22,
+    name: 'Стол Meridian',
+    price: 42000,
+    image: 'images/card/MeridianConsoleTable.jpg',
+    badge: 'Новинка'
+  },
+  {
+    id: 23,
+    name: 'Диван Midtown',
+    price: 46000,
+    image: 'images/card/MidtownSectional.jpg'
+  },
+  {
+    id: 24,
+    name: 'Напольная лампа Nimbus',
+    price: 27000,
+    oldPrice: 31000,
+    image: 'images/card/NimbusChandelier.jpg',
+    badge: 'Скидка'
+  },
+  {
+    id: 25,
+    name: 'Диван Velvet',
+    price: 61000,
+    image: 'images/card/VelvetHavenSofa.jpg'
+  },
+  {
+    id: 26,
+    name: 'Стол Oakview',
+    price: 43000,
+    image: 'images/card/OakviewDiningTable.jpg'
+  },
+  {
+    id: 27,
+    name: 'Стул Piper',
+    price: 26000,
+    image: 'images/card/PiperBarStool.jpg',
+    badge: 'Новинка'
+  },
 ]
+
+const totalPages = computed(() => Math.ceil(products.length / itemsPerPage))
+
+const paginatedProducts = computed(() => {
+  const start = (currentPage.value - 1) * itemsPerPage
+  const end = start + itemsPerPage
+  return products.slice(start, end)
+})
 
 const formatPrice = (price) => {
   return price.toLocaleString('ru-RU')
@@ -281,7 +430,6 @@ const addToCart = (product) => {
 }
 </script>
 
-
-<style scoped lang="scss" >
-     @use './Catalog.scss' as *;
+<style scoped lang="scss">
+@use './Catalog.scss' as *;
 </style>

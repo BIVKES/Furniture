@@ -385,6 +385,9 @@
   }
 
   .cart-summary {
+    flex-direction: column;
+    display: flex;
+    width: 320px;
     padding: 20px;
   }
 }

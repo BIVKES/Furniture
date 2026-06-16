@@ -1,9 +1,18 @@
 import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'  
 
 export const useCartStore = defineStore('cart', () => {
 
-  const items = ref([])
+  const savedItems = localStorage.getItem('cart')
+  const items = ref(savedItems ? JSON.parse(savedItems) : [])
+
+  watch(
+    items,
+    (newItems) => {
+      localStorage.setItem('cart', JSON.stringify(newItems))
+    },
+    { deep: true }
+  )
 
   const totalItems = computed(() => {
     return items.value.reduce((sum, item) => sum + item.qty, 0)
