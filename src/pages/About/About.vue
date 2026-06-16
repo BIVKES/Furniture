@@ -118,22 +118,22 @@
         <h2 class="about-materials__title">Материалы, которым мы доверяем</h2>
         <div class="about-materials__grid">
           <div class="material-card">
-            <img src="/images/dub.jpg" alt="Дуб" class="material-card__img">
+            <img src="/images/materials/dub.jpg" alt="Дуб" class="material-card__img">
             <h3 class="material-card__title">Массив дуба</h3>
             <p class="material-card__desc">Каркасы и ножки. Дуб из Карелии, естественная сушка 2 года.</p>
           </div>
           <div class="material-card">
-            <img src="/images/wool.png" alt="Шерсть" class="material-card__img">
+            <img src="/images/materials/wool.png" alt="Шерсть" class="material-card__img">
             <h3 class="material-card__title">Натуральная шерсть</h3>
             <p class="material-card__desc">Обивка кресел и диванов. Новозеландская шерсть, плотность 400г/м².</p>
           </div>
           <div class="material-card">
-            <img src="/images/flax.jpeg" alt="Лен" class="material-card__img">
+            <img src="/images/materials/flax.jpeg" alt="Лен" class="material-card__img">
             <h3 class="material-card__title">Лен</h3>
             <p class="material-card__desc">Чехлы и подушки. Белорусский лен, выращенный без пестицидов.</p>
           </div>
           <div class="material-card">
-            <img src="/images/brass.jpeg" alt="Латунь" class="material-card__img">
+            <img src="/images/materials/brass.jpeg" alt="Латунь" class="material-card__img">
             <h3 class="material-card__title">Латунь</h3>
             <p class="material-card__desc">Фурнитура и освещение. Итальянская латунь, ручная полировка.</p>
           </div>

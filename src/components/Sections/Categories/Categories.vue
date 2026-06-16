@@ -33,9 +33,9 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
     const categories = [
-        { id: 1, name: 'Диваны', image: 'images/sofa.jpg' },
-        { id: 2, name: 'Столы', image: 'images/table.jpg' },
-        { id: 3, name: 'Освещение', image: 'images/chandelier.jpg' },
+        { id: 1, name: 'Диваны', image: 'images/card/sofa.jpg' },
+        { id: 2, name: 'Столы', image: 'images/card/table.jpg' },
+        { id: 3, name: 'Освещение', image: 'images/card/chandelier.jpg' },
     ]
 
     const goToCatalog = () => {

@@ -57,28 +57,28 @@
             id: 1,
             name: 'Кресло Bergen',
             price: 45000,
-            image: 'images/armchair.jpg',
+            image: 'images/card/armchair.jpg',
             badge: 'Новинка'
         },
         {
             id: 2,
             name: 'Диван Oslo',
             price: 127000,
-            image: 'images/sofa.jpg'
+            image: 'images/card/sofa.jpg'
         },
         {
             id: 3,
             name: 'Стол Stockholm',
             price: 38000,
             oldPrice: 52000,
-            image: 'images/table.jpg',
+            image: 'images/card/table.jpg',
             badge: 'Скидка'
         },
         {
             id: 4,
             name: 'Светильник Nordic',
             price: 18500,
-            image: 'images/chandelier.jpg'
+            image: 'images/card/chandelier.jpg'
         }
     ] 
         
