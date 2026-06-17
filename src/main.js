@@ -18,6 +18,4 @@ app.component('BaseButton', BaseButton)
 app.component('BaseInput', BaseInput)
 app.component('NavMenu', NavMenu)
 
-
-
 app.mount('#app')

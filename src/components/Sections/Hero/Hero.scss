@@ -1,19 +1,28 @@
 .hero-bg {
     background:
-        linear-gradient(to right, rgba(0,0,0,0.55), rgba(0,0,0,0.15)),
-        url('/images/hero-bg/favicon.jpeg');
+    linear-gradient(to right, rgba(0,0,0,0.55), rgba(0,0,0,0.15)), 
+    url('/images/hero-bg/favicon.jpeg');
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero {
-    max-width: 740px;
-    padding-top: 372px;
+    width: 100%;
+    max-width: var(--container-max);
+    padding: 0 15px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--color-surface);
+
+    &__content {
+        max-width: 740px;
+    }
 
     &__title {
         margin-bottom: 24px;
@@ -32,12 +41,7 @@
 }
 
 @media (max-width: 1024px) {
-    .hero-bg {
-            height: 750px;
-        }
     .hero {
-        padding-top: 280px;
-
         &__title {
             font-size: 56px;
         }
@@ -45,12 +49,7 @@
 }
 
 @media (max-width: 768px) {
-    
     .hero {
-        padding-top: 200px;
-        padding-left: 16px;
-        padding-right: 16px;
-
         &__title {
             font-size: 40px;
             margin-bottom: 16px;
@@ -64,12 +63,7 @@
 }
 
 @media (max-width: 480px) {
-    .hero-bg {
-        height: 500px;
-    }
     .hero {
-        padding-top: 160px;
-
         &__title {
             font-size: 32px;
         }

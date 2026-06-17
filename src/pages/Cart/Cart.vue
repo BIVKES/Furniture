@@ -7,12 +7,12 @@
 
     <div class="cart-page__layout container">
       <div class="cart-items">
-        <div v-if="items.length === 0" class="cart-items__empty">
+        <div v-if="cartProducts.length === 0" class="cart-items__empty">
           Корзина пуста
         </div>
         
         <div 
-          v-for="item in items" 
+          v-for="item in cartProducts" 
           :key="item.id"
           class="cart-item"
         >
@@ -22,8 +22,8 @@
           
           <div class="cart-item__info">
             <div class="cart-item__name">{{ item.name }}</div>
-            <div class="cart-item__variant">{{ item.variant }}</div>
-            <div class="cart-item__sku">Арт. {{ item.sku }}</div>
+            <div class="cart-item__variant">Стандарт</div>
+            <div class="cart-item__sku">Арт. {{ item.id }}</div>
           </div>
           
           <div class="cart-item__quantity quantity">
@@ -74,7 +74,7 @@
         
         <div class="cart-summary__row">
           <span>Подытог</span>
-          <span>{{ formatPrice(totalPrice) }} ₽</span>
+          <span>{{ formatPrice(subtotal) }} ₽</span>
         </div>
         <div class="cart-summary__row">
           <span>Доставка</span>
@@ -89,7 +89,7 @@
         
         <div class="cart-summary__total">
           <span>Итого</span>
-          <span class="cart-summary__total-value">{{ formatPrice(totalPrice - discount) }} ₽</span>
+          <span class="cart-summary__total-value">{{ formatPrice(subtotal - discount) }} ₽</span>
         </div>
         
         <BaseButton 
@@ -106,33 +106,47 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
-import { useRouter } from 'vue-router'
-import { useCartStore } from '@/stores/cart.js'
-import { storeToRefs } from 'pinia'
+  import { ref, computed } from 'vue'
+  import { useRouter } from 'vue-router'
+  import { useCartStore } from '@/stores/cart.js'
+  import { useProductsStore } from '@/stores/products.js'
+  import { storeToRefs } from 'pinia'
 
-const router = useRouter()
-const cartStore = useCartStore()
-const { items, totalItems, totalPrice } = storeToRefs(cartStore)
+  const router = useRouter()
+  const cartStore = useCartStore()
+  const productsStore = useProductsStore()
+  const { items, totalItems } = storeToRefs(cartStore)
 
-const promoCode = ref('')
-const discount = ref(15000)
+  const promoCode = ref('')
+  const discount = ref(15000)
 
-const formatPrice = (price) => {
-  return price.toLocaleString('ru-RU')
-}
+  const cartProducts = computed(() => {
+    return items.value.map(cartItem => {
+      const product = productsStore.getById(cartItem.id)
+      return {
+        ...product,
+        qty: cartItem.qty
+      }
+    }).filter(item => item.id !== undefined) 
+  })
 
-const removeItem = (id) => cartStore.removeItem(id)
-const increaseQty = (id) => cartStore.increaseQty(id)
-const decreaseQty = (id) => cartStore.decreaseQty(id)
+  const subtotal = computed(() => {
+    return cartProducts.value.reduce((sum, item) => sum + item.price * item.qty, 0)
+  })
 
-const applyPromo = () => {
-  alert(`Промокод ${promoCode.value} применен!`)
-}
+  const formatPrice = productsStore.formatPrice
 
-const goToCatalog = () => {
-  router.push('/catalog')
-}
+  const removeItem = (id) => cartStore.removeItem(id)
+  const increaseQty = (id) => cartStore.increaseQty(id)
+  const decreaseQty = (id) => cartStore.decreaseQty(id)
+
+  const applyPromo = () => {
+    alert(`Промокод ${promoCode.value} применен!`)
+  }
+
+  const goToCatalog = () => {
+    router.push('/catalog')
+  }
 </script>
 
 <style scoped lang="scss">

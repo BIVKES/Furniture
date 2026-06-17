@@ -1,37 +1,28 @@
 import { defineStore } from 'pinia'
-import { ref, computed, watch } from 'vue'  
+import { ref, computed } from 'vue'
+import { useProductsStore } from './products.js'
 
 export const useCartStore = defineStore('cart', () => {
-
-  const savedItems = localStorage.getItem('cart')
-  const items = ref(savedItems ? JSON.parse(savedItems) : [])
-
-  watch(
-    items,
-    (newItems) => {
-      localStorage.setItem('cart', JSON.stringify(newItems))
-    },
-    { deep: true }
-  )
+  const items = ref([])  
 
   const totalItems = computed(() => {
     return items.value.reduce((sum, item) => sum + item.qty, 0)
   })
 
   const totalPrice = computed(() => {
-    return items.value.reduce((sum, item) => sum + item.price * item.qty, 0)
+    const productsStore = useProductsStore()
+    return items.value.reduce((sum, item) => {
+      const product = productsStore.getById(item.id)
+      return sum + (product ? product.price * item.qty : 0)
+    }, 0)
   })
 
-  const addItem = (product) => {
-    const existing = items.value.find(i => i.id === product.id)
+  const addItem = (productId) => {
+    const existing = items.value.find(i => i.id === productId)
     if (existing) {
       existing.qty++
     } else {
-      items.value.push({
-        ...product,
-        qty: 1,
-        variant: product.variant || 'Стандарт'
-      })
+      items.value.push({ id: productId, qty: 1 })
     }
   }
 
