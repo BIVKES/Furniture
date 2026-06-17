@@ -233,7 +233,6 @@
     { id: 4, name: 'Кожа', count: 12 }
   ]
 
-  // ===== ВЫЧИСЛЯЕМЫЕ ДЛЯ ПАГИНАЦИИ =====
   const totalPages = computed(() => Math.ceil(products.length / itemsPerPage))
 
   const paginatedProducts = computed(() => {
