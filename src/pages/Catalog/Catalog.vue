@@ -102,7 +102,9 @@
 
       <div class="catalog__content">
         <div class="catalog__top">
-          <div class="catalog__results">Показано {{ products.length }} из {{ products.length }} товаров</div>
+          <div class="catalog__results">
+            Показано {{ paginatedProducts.length }} из {{ products.length }} товаров
+          </div>
           <select class="catalog__sort sort">
             <option class="sort__option">По популярности</option>
             <option class="sort__option">Сначала дешевле</option>
@@ -113,7 +115,7 @@
 
         <div class="catalog__products products">
           <div 
-            v-for="product in products" 
+            v-for="product in paginatedProducts" 
             :key="product.id"
             class="products__item product-card"
           >
@@ -156,13 +158,31 @@
         </div>
 
         <div class="catalog__pagination pagination">
-          <button class="pagination__btn pagination__btn--arrow">← Назад</button>
-          <button class="pagination__btn pagination__btn--active">1</button>
-          <button class="pagination__btn">2</button>
-          <button class="pagination__btn">3</button>
-          <button class="pagination__btn">4</button>
-          <button class="pagination__btn">5</button>
-          <button class="pagination__btn pagination__btn--arrow">Вперед →</button>
+          <button 
+            class="pagination__btn pagination__btn--arrow" 
+            :disabled="currentPage === 1"
+            @click="prevPage"
+          >
+            ← Назад
+          </button>
+          
+          <button 
+            v-for="page in totalPages" 
+            :key="page"
+            class="pagination__btn"
+            :class="{ 'pagination__btn--active': currentPage === page }"
+            @click="goToPage(page)"
+          >
+            {{ page }}
+          </button>
+          
+          <button 
+            class="pagination__btn pagination__btn--arrow" 
+            :disabled="currentPage === totalPages"
+            @click="nextPage"
+          >
+            Вперед →
+          </button>
         </div>
       </div>
     </div>
@@ -170,7 +190,7 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue'
+  import { ref, computed } from 'vue'
   import { useProductsStore } from '@/stores/products.js'
   import { useCartStore } from '@/stores/cart.js'
   import { storeToRefs } from 'pinia'
@@ -179,6 +199,9 @@
   const cartStore = useCartStore()
   const { items } = storeToRefs(cartStore)
   const sidebarOpen = ref(false)
+
+  const currentPage = ref(1)
+  const itemsPerPage = 9
 
   const toggleSidebar = () => {
     sidebarOpen.value = !sidebarOpen.value
@@ -209,6 +232,34 @@
     { id: 3, name: 'Текстиль', count: 32 },
     { id: 4, name: 'Кожа', count: 12 }
   ]
+
+  // ===== ВЫЧИСЛЯЕМЫЕ ДЛЯ ПАГИНАЦИИ =====
+  const totalPages = computed(() => Math.ceil(products.length / itemsPerPage))
+
+  const paginatedProducts = computed(() => {
+    const start = (currentPage.value - 1) * itemsPerPage
+    const end = start + itemsPerPage
+    return products.slice(start, end)
+  })
+
+  const goToPage = (page) => {
+    currentPage.value = page
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  const prevPage = () => {
+    if (currentPage.value > 1) {
+      currentPage.value--
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
+
+  const nextPage = () => {
+    if (currentPage.value < totalPages.value) {
+      currentPage.value++
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
 
   const isInCart = (productId) => {
     return items.value.some(item => item.id === productId)

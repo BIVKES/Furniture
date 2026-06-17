@@ -63,6 +63,10 @@
 }
 
 @media (max-width: 480px) {
+    .hero-bg {
+        min-height: 0;
+        height: 500px;
+    }
     .hero {
         &__title {
             font-size: 32px;
